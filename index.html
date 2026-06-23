@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Хогвартс - Распределяющая шляпа</title>
+</head>
+
+<body style="text-align:center; font-family:Arial; background:#111; color:white;">
+
+  <h1>🎩 Распределяющая шляпа</h1>
+
+  <p>Введите имя персонажа:</p>
+
+  <input id="name" placeholder="Например Гарри" style="padding:10px;">
+  <br><br>
+
+  <button onclick="sort()">Определить факультет</button>
+
+  <h2 id="result"></h2>
+  <p id="room"></p>
+
+  <script>
+    function sort() {
+      let name = document.getElementById("name").value;
+
+      let houses = ["Гриффиндор", "Слизерин", "Когтевран", "Пуффендуй"];
+      let rooms = {
+        "Гриффиндор": "🔥 Башня Гриффиндора",
+        "Слизерин": "🐍 Подземелья под озером",
+        "Когтевран": "🦅 Башня с загадками",
+        "Пуффендуй": "🦡 Уютные подземные комнаты"
+      };
+
+      let house = houses[Math.floor(Math.random() * houses.length)];
+
+      document.getElementById("result").innerText =
+        name + " попадает в " + house;
+
+      document.getElementById("room").innerText =
+        "Комната: " + rooms[house];
+    }
+  </script>
+
+</body>
+</html>
